@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+/* ==========================================
+   1. BASE MÓVIL (Mobile-First)
+   ========================================== */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #0b0b0b;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Cambiado a min-height para evitar cortes en móvil */
     margin: 0;
 }
 
@@ -15,7 +18,9 @@ body {
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 300px;
+    width: 85%; /* En móvil ocupa casi todo el ancho */
+    max-width: 450px; /* Evita que crezca demasiado en pantallas medianas */
+    margin: 20px;
 }
 
 h2 {
@@ -31,28 +36,58 @@ label {
     color: #555;
 }
 
+/* Selector extendido para incluir texto y email */
+input[type="text"],
 input[type="email"],
 input[type="password"] {
     width: 100%;
-    padding: 8px;
+    padding: 10px; /* Un poco más de padding para touch en móvil */
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 button {
-    margin-top: 15px;
+    margin-top: 20px;
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background: #ff3131;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
 }
 
 button:hover {
     background: #a04545;
+}
+
+/* ==========================================
+   2. TABLET (>= 768px)
+   ========================================== */
+@media (min-width: 768px) {
+    .register-container {
+        width: 400px;
+        padding: 40px;
+    }
+}
+
+/* ==========================================
+   3. PC / DESKTOP (>= 1024px)
+   ========================================== */
+@media (min-width: 1024px) {
+    body {
+        /* Un detalle visual para diferenciar la versión desktop */
+        background: radial-gradient(circle, #1a1a1a 0%, #0b0b0b 100%);
+    }
+
+    .register-container {
+        width: 450px;
+        box-shadow: 0 0 25px rgba(255, 49, 49, 0.2); /* Sutil resplandor rojo */
+    }
 }
