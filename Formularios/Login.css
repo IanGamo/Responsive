@@ -1,6 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 /* ==========================================
+   INDICADOR DE VISTA (Nuevo)
+   ========================================== */
+body::before {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: #ff3131;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 1000;
+    content: "Vista Móvil"; /* Texto por defecto */
+}
+
+/* ==========================================
    1. BASE MÓVIL (Simple y funcional)
    ========================================== */
 body {
@@ -19,7 +37,6 @@ body {
     width: 85%;
     max-width: 450px;
     border-radius: 8px;
-    /* Sombras muy sutiles para móvil */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -63,39 +80,44 @@ button {
 }
 
 /* ==========================================
-   2. TABLET (>= 768px) - Añade detalle visual
+   2. TABLET (>= 768px)
    ========================================== */
 @media (min-width: 768px) {
+    body::before {
+        content: "Vista Tablet"; /* Cambia el texto */
+        background: #333; /* Cambiamos el color para que se note el salto */
+    }
+
     .login-container {
-        /* Se añade la línea decorativa superior */
         border-top: 8px solid #ff3131;
         border-radius: 0 0 8px 8px;
-        /* Recto arriba para la línea */
         padding: 40px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 }
 
 /* ==========================================
-   3. PC / DESKTOP (>= 1024px) - Todo "más bonito"
+   3. PC / DESKTOP (>= 1024px)
    ========================================== */
 @media (min-width: 1024px) {
+    body::before {
+        content: "Vista PC"; /* Cambia el texto */
+        background: #000;
+        border: 1px solid #ff3131;
+    }
+
     body {
-        /* Fondo con degradado sofisticado */
         background: radial-gradient(circle, #222 0%, #000 100%);
     }
 
     .login-container {
         width: 650px;
         max-width: none;
-        /* Quitamos la línea de arriba y la ponemos lateral */
         border-top: none;
         border-left: 12px solid #ff3131;
         border-radius: 8px;
     }
 
-
-    /* Cambio de disposición: Labels al lado de los Inputs */
     .input-group {
         flex-direction: row;
         align-items: center;
@@ -104,7 +126,6 @@ button {
 
     label {
         flex: 0 0 30%;
-        /* Ocupa el 30% */
         margin-bottom: 0;
         text-align: right;
         padding-right: 20px;
@@ -112,9 +133,7 @@ button {
 
     input {
         flex: 1;
-        /* El input ocupa el resto */
         border: 2px solid #eee;
-        /* Borde un poco más grueso y claro */
     }
 
     input:focus {
@@ -125,7 +144,6 @@ button {
     h2 {
         font-size: 2.2rem;
         margin-left: 30%;
-        /* Alineado con el bloque de inputs */
         text-align: left;
         color: #000;
         text-transform: uppercase;
