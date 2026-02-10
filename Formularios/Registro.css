@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 /* ==========================================
-   INDICADOR DE VISTA (Dinámico)
+   INDICADOR DE VISTA
    ========================================== */
 body::before {
     position: fixed;
@@ -15,13 +15,17 @@ body::before {
     font-weight: bold;
     text-transform: uppercase;
     z-index: 1000;
-    content: "Vista Móvil"; /* Texto por defecto */
+    content: "Vista Móvil";
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
 /* ==========================================
-   1. BASE MÓVIL (Original y Simple)
+   1. BASE MÓVIL (Mobile-First)
    ========================================== */
+* {
+    box-sizing: border-box; /* Asegura que el padding no estire el ancho */
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #0b0b0b;
@@ -30,30 +34,33 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    width: 100%; /* Refuerzo para móvil */
+    overflow-x: hidden; /* Evita scroll lateral innecesario */
 }
 
 .register-container {
     background: #fff;
-    padding: 25px 30px;
+    padding: 25px 20px; /* Un poco menos de padding lateral en móvil */
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    width: 85%;
+    width: 90%; /* Aumentado de 85% a 90% para mejor visualización en móviles pequeños */
     max-width: 450px;
-    margin: 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #333;
     font-weight: 700;
+    font-size: 1.5rem; /* Tamaño más adecuado para móvil */
 }
 
-/* Agrupamos etiquetas e inputs para controlar la disposición */
 .input-group {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 label {
@@ -65,17 +72,18 @@ label {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
-    width: 100%;
+input[type="password"],
+input[type="tel"] {
+    width: 100% !important; /* Forzamos el ancho completo */
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px; /* Evita que iOS haga zoom automático al clickar */
 }
 
 button {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
     padding: 14px;
     background: #ff3131;
@@ -88,4 +96,72 @@ button {
     transition: all 0.3s ease;
 }
 
-/* 
+/* ==========================================
+   2. TABLET (>= 768px)
+   ========================================== */
+@media (min-width: 768px) {
+    body::before {
+        content: "Vista Tablet";
+        background: #333;
+    }
+
+    .register-container {
+        border-top: 8px solid #ff3131;
+        border-radius: 0 0 8px 8px;
+        padding: 40px;
+        width: 70%;
+    }
+}
+
+/* ==========================================
+   3. PC / DESKTOP (>= 1024px)
+   ========================================== */
+@media (min-width: 1024px) {
+    body::before {
+        content: "Vista PC";
+        background: #000;
+        border: 1px solid #ff3131;
+    }
+
+    body {
+        background: radial-gradient(circle, #1a1a1a 0%, #0b0b0b 100%);
+    }
+
+    .register-container {
+        width: 700px;
+        border-top: none;
+        border-left: 12px solid #ff3131;
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(255, 49, 49, 0.2);
+    }
+
+    .input-group {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        flex: 0 0 30%;
+        text-align: right;
+        padding-right: 25px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+        flex: 1;
+    }
+
+    h2 {
+        text-align: left;
+        margin-left: 30%;
+        font-size: 2.2rem;
+    }
+
+    button {
+        width: 70%;
+        margin-left: 30%;
+    }
+}
