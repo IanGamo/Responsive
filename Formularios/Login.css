@@ -1,64 +1,96 @@
-/* 1. BASE MÓVIL (Por defecto) */
+/* ==========================================
+   1. BASE MÓVIL (Mobile First)
+   ========================================== */
 body {
   margin: 0;
-  background-color: #f0f2f5;
-  font-family: sans-serif;
+  /* Fondo oscuro para que resalten los elementos */
+  background-color: #1a1a1a; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  color: #ffffff;
 }
 
 .login-card {
-  background: #ffffff;
-  padding: 2rem;
-  width: 90%; 
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: #ffffff; /* Card blanco para alto contraste */
+  padding: 2.5rem 1.5rem;
+  width: 85%; 
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .input-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
-label { display: block; margin-bottom: 5px; }
+label { 
+  display: block; 
+  margin-bottom: 8px; 
+  color: #1a1a1a; /* Texto negro sobre fondo blanco */
+  font-weight: bold;
+  font-size: 0.9rem;
+}
 
 input {
   width: 100%;
   padding: 12px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  box-sizing: border-box; 
+  border: 2px solid #eeeeee;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ff0000; /* Borde rojo al seleccionar */
 }
 
 button {
   width: 100%;
-  padding: 12px;
-  background-color: #007bff;
+  padding: 14px;
+  background-color: #ff0000; /* Rojo vibrante */
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/*   2. TABLET (>= 768px) */
+button:hover {
+  background-color: #cc0000; /* Rojo más oscuro al pasar el mouse */
+}
+
+button:active {
+  transform: scale(0.98); /* Efecto de pulsación */
+}
+
+/* ==========================================
+   2. TABLET (>= 768px)
+   ========================================== */
 @media (min-width: 768px) {
   .login-card {
-    width: 450px; 
+    width: 400px; 
     padding: 3rem;
   }
 }
 
 /* ==========================================
-   3. PC / DESKTOP (>= 1024px) 
+   3. PC / DESKTOP (>= 1024px)
    ========================================== */
 @media (min-width: 1024px) {
   body {
-    background: linear-gradient(135deg, #f0f2f5 50%, #007bff 50%);
+    /* Gradiente sofisticado en negro y rojo oscuro */
+    background: radial-gradient(circle at center, #2c2c2c 0%, #000000 100%);
   }
   
   .login-card {
-    width: 400px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    /* Añadimos un detalle lateral rojo para estilo premium */
+    border-left: 8px solid #ff0000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   }
 }
