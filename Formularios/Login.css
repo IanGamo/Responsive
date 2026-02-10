@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 /* ==========================================
-   1. BASE MÓVIL (Mobile-First)
+   1. BASE MÓVIL (Simple y funcional)
    ========================================== */
 body {
     font-family: 'Montserrat', sans-serif;
@@ -15,99 +15,128 @@ body {
 
 .login-container {
     background: #fff;
-    padding: 20px 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 25px;
     width: 85%;
     max-width: 450px;
-    margin: 20px;
+    border-radius: 8px;
+    /* Sombras muy sutiles para móvil */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 20px;
     color: #333;
-    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-    display: block;
-    margin-top: 15px; /* Igual que en el register */
+    margin-bottom: 5px;
     font-weight: bold;
     color: #555;
 }
 
-/* Selectores específicos para el Login */
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
+input {
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 100%;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
-input:focus {
-    outline: none;
-    border-color: #ff3131;
-}
-
-/* Botón con el estilo exacto de register */
 button {
-    margin-top: 25px;
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     background: #ff3131;
     color: white;
     border: none;
     border-radius: 4px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background: #a04545; /* Mismo hover que register */
-}
-
-/* Enlace para ir al registro */
-.register-link {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    color: #ff3131;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.register-link:hover {
-    text-decoration: underline;
+    margin-top: 10px;
 }
 
 /* ==========================================
-   2. TABLET (>= 768px)
+   2. TABLET (>= 768px) - Añade detalle visual
    ========================================== */
 @media (min-width: 768px) {
     .login-container {
-        width: 400px;
+        /* Se añade la línea decorativa superior */
+        border-top: 8px solid #ff3131;
+        border-radius: 0 0 8px 8px;
+        /* Recto arriba para la línea */
         padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 }
 
 /* ==========================================
-   3. PC / DESKTOP (>= 1024px)
+   3. PC / DESKTOP (>= 1024px) - Todo "más bonito"
    ========================================== */
 @media (min-width: 1024px) {
     body {
-        background: radial-gradient(circle, #1a1a1a 0%, #0b0b0b 100%);
+        /* Fondo con degradado sofisticado */
+        background: radial-gradient(circle, #222 0%, #000 100%);
     }
 
     .login-container {
-        width: 450px;
-        box-shadow: 0 0 25px rgba(255, 49, 49, 0.2); /* Resplandor rojo idéntico */
+        width: 650px;
+        max-width: none;
+        /* Quitamos la línea de arriba y la ponemos lateral */
+        border-top: none;
+        border-left: 12px solid #ff3131;
+        border-radius: 8px;
+        /* Resplandor rojo (glow) como en tu registro */
+        box-shadow: 0 0 40px rgba(255, 49, 49, 0.2);
+
+        /* Transición suave para los cambios */
+        transition: transform 0.3s ease;
+    }
+
+    /* Animación al pasar el ratón por la tarjeta */
+    .login-container:hover {
+        transform: scale(1.01);
+    }
+
+    /* Cambio de disposición: Labels al lado de los Inputs */
+    .input-group {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        flex: 0 0 30%;
+        /* Ocupa el 30% */
+        margin-bottom: 0;
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    input {
+        flex: 1;
+        /* El input ocupa el resto */
+        border: 2px solid #eee;
+        /* Borde un poco más grueso y claro */
+    }
+
+    input:focus {
+        border-color: #ff3131;
+        outline: none;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+        margin-left: 30%;
+        /* Alineado con el bloque de inputs */
+        text-align: left;
+        color: #000;
+        text-transform: uppercase;
     }
 }
