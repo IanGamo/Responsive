@@ -92,17 +92,8 @@ button {
         border-top: none;
         border-left: 12px solid #ff3131;
         border-radius: 8px;
-        /* Resplandor rojo (glow) como en tu registro */
-        box-shadow: 0 0 40px rgba(255, 49, 49, 0.2);
-
-        /* Transición suave para los cambios */
-        transition: transform 0.3s ease;
     }
 
-    /* Animación al pasar el ratón por la tarjeta */
-    .login-container:hover {
-        transform: scale(1.01);
-    }
 
     /* Cambio de disposición: Labels al lado de los Inputs */
     .input-group {
