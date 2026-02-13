@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 /* ==========================================
-   INDICADOR DE VISTA (Nuevo)
+   INDICADOR DE VISTA 
    ========================================== */
 body::before {
     position: fixed;
@@ -15,7 +15,7 @@ body::before {
     font-weight: bold;
     text-transform: uppercase;
     z-index: 1000;
-    content: "Vista Móvil"; /* Texto por defecto */
+    content: "Vista Móvil"; 
 }
 
 /* ==========================================
@@ -75,7 +75,6 @@ button {
     border: none;
     border-radius: 4px;
     font-weight: bold;
-    cursor: pointer;
     margin-top: 10px;
 }
 
@@ -84,8 +83,8 @@ button {
    ========================================== */
 @media (min-width: 768px) {
     body::before {
-        content: "Vista Tablet"; /* Cambia el texto */
-        background: #333; /* Cambiamos el color para que se note el salto */
+        content: "Vista Tablet"; 
+        background: #333; 
     }
 
     .login-container {
@@ -101,7 +100,7 @@ button {
    ========================================== */
 @media (min-width: 1024px) {
     body::before {
-        content: "Vista PC"; /* Cambia el texto */
+        content: "Vista PC"; 
         background: #000;
         border: 1px solid #ff3131;
     }

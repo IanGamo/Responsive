@@ -23,7 +23,7 @@ body::before {
    1. BASE MÓVIL (Mobile-First)
    ========================================== */
 * {
-    box-sizing: border-box; /* Asegura que el padding no estire el ancho */
+    box-sizing: border-box; 
 }
 
 body {
@@ -34,15 +34,15 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    width: 100%; /* Refuerzo para móvil */
-    overflow-x: hidden; /* Evita scroll lateral innecesario */
+    width: 100%; 
+   
 }
 
 .register-container {
     background: #fff;
-    padding: 25px 20px; /* Un poco menos de padding lateral en móvil */
+    padding: 25px 20px; 
     border-radius: 8px;
-    width: 90%; /* Aumentado de 85% a 90% para mejor visualización en móviles pequeños */
+    width: 90%; 
     max-width: 450px;
     margin: 20px auto;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -53,7 +53,7 @@ h2 {
     margin-bottom: 25px;
     color: #333;
     font-weight: 700;
-    font-size: 1.5rem; /* Tamaño más adecuado para móvil */
+   
 }
 
 .input-group {
@@ -67,19 +67,19 @@ label {
     margin-bottom: 5px;
     font-weight: bold;
     color: #555;
-    font-size: 0.9rem;
+   
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="tel"] {
-    width: 100% !important; /* Forzamos el ancho completo */
+    width: 100% !important; 
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px; /* Evita que iOS haga zoom automático al clickar */
+    font-size: 16px; 
 }
 
 button {
